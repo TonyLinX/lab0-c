@@ -111,13 +111,23 @@ element_t *q_remove_tail(struct list_head *head, char *sp, size_t bufsize)
 /* Return number of elements in queue */
 int q_size(struct list_head *head)
 {
-    return -1;
+    int number = 0;
+
+    if (!head || list_empty(head))
+        return number;
+
+    struct list_head *current;
+
+    list_for_each (current, head)
+        number++;
+
+
+    return number;
 }
 
 /* Delete the middle node in queue */
 bool q_delete_mid(struct list_head *head)
 {
-    // https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/
     return true;
 }
 
